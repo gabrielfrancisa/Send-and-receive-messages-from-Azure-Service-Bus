@@ -29,9 +29,9 @@ This project, I create and configure Azure Service Bus resources, then build a .
 ##Bash command 1
 >>> az group create --name myResourceGroup --location eastus
 
-i). Run the following commands to create the needed variables. 
-ii). Replace myResourceGroup with the name you want. 
-iii). If you changed the location in the previous step, make the same change in the location variable.
+1. Run the following commands to create the needed variables.
+2. Replace myResourceGroup with the name you want. 
+3. If you changed the location in the previous step, make the same change in the location variable.
 
 ##Bash command 2
 >>> resourceGroup=myResourceGrouplod55298919
@@ -59,9 +59,9 @@ Run the following command to create a queue named myqueue.
     >>> --name myqueue
 
 ## Assign a role to your Microsoft Entra user name
-To allow your app to send and receive messages, assign your Microsoft Entra user to the Azure Service Bus Data Owner role at the Service Bus namespace level. 
-This gives your user account permission to manage and access queues and topics using Azure RBAC. 
->> Perform the following steps in the cloud shell.
+1. To allow your app to send and receive messages, assign your Microsoft Entra user to the Azure Service Bus Data Owner role at the Service Bus namespace level. 
+2. This gives your user account permission to manage and access queues and topics using Azure RBAC. 
+3. Perform the following steps in the cloud shell.
 
 ## Run the following command to retrieve the userPrincipalName from your account. This represents who the role will be assigned to.
 >>> userPrincipal=$(az rest --method GET --url https://graph.microsoft.com/v1.0/me \
@@ -80,8 +80,8 @@ This gives your user account permission to manage and access queues and topics u
 
 
 ## Create a .NET console app to send and receive messages
-# Now that the needed resources are deployed to Azure the next step is to set up the console application. 
-# The following steps are performed in the cloud shell.
+1. Now that the needed resources are deployed to Azure the next step is to set up the console application. 
+2. The following steps are performed in the cloud shell.
 
 
 ## Run the following commands to create a directory to contain the project and change into the project directory.
@@ -96,7 +96,7 @@ This gives your user account permission to manage and access queues and topics u
 >>> dotnet add package Azure.Identity
 
 ## Add the starter code for the project
-# Run the following command in the cloud shell to begin editing the application.
+1. Run the following command in the cloud shell to begin editing the application.
 
 
 ## Replace any existing contents with the following code. Be sure to review the comments in the code, and replace it with the Service Bus namespace you recorded earlier.
@@ -226,22 +226,22 @@ await client.DisposeAsync();
 ```
 
 ## Sign into Azure and run the app
-# In the cloud shell command-line pane, enter the following command to sign into Azure.
+1. In the cloud shell command-line pane, enter the following command to sign into Azure.
 >>> az login
 You must sign into Azure - even though the cloud shell session is already authenticated.
 
 
 ## Run the following command to start the console app. 
-# The app will pause a various stages and prompt you to press a key to continue. 
-# This allows you to view the messages in the Azure portal.
+1. The app will pause a various stages and prompt you to press a key to continue. 
+2. This allows you to view the messages in the Azure portal.
 
 >>> dotnet run
 
-# In the Azure portal, navigate to the Service Bus namespace you created.
-# Select myqueue at the bottom of the Overview window.
-# Select Service Bus Explorer in the left navigation pane.
+1. In the Azure portal, navigate to the Service Bus namespace you created.
+2. Select myqueue at the bottom of the Overview window.
+3. Select Service Bus Explorer in the left navigation pane.
 
-# Select Peek from start, and the three messages should appear after a few seconds.
+## Select Peek from start, and the three messages should appear after a few seconds.
 1. In the cloud shell, press any key to continue, and the application will process the three messages.
 2. Return to the portal after the application has completed processing the messages. Select Peek from start again and notice there are no messages in the queue.
 
